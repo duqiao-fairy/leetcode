@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>无重复字符的最长子串</title>
+</head>
+<body>
+  <script>
+    /*
+      思路: 
+    */
+    /**
+    * @param {string[]} strs
+    * @return {string}
+    */
+    let longestCommonPrefix = function(strs) {
+      let res = ''
+      if (!strs.length) return res
+      for (let j = 0; j < strs[0].length; j ++) {
+        console.log(strs[0][j])
+        for (let i = 0; i < strs.length; i ++) {
+          if (strs[i][j] !== strs[0][j]) {
+            return res
+          }
+
+        }
+        res += strs[0][j]
+      }
+      return res
+    }
+    console.log(longestCommonPrefix(['fjsklfjik', 'fjaaiik', 'fjoplsf']))
+  </script>
+</body>
+</html>
