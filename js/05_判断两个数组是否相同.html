@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function isEquar(a, b) {
+        // 判断数组的长度
+        if (a.length !== b.length) {
+            return false
+        } else {
+            // 循环遍历数组的值进行比较
+            for (let i = 0; i < a.length; i++) {
+                if (a[i] !== b[i]) {
+                    return false
+                }
+            }
+            return true;
+        }
+    }
+    var arrone = [
+        {op: "A", name: "暂时将委托人的营业执照副本代为保管", is_answer: 0, sureid: true},
+        {op: "B", name: "签订“专有经纪权合同", is_answer: 1, sureid: true},
+        {op: "C", name: "到工商行政管理机构进行合同公证", is_answer: 1, sureid: true}
+   ]
+   var arrtwo = [
+        {op: "B", name: "签订“专有经纪权合同", is_answer: 1, sureid: true},
+        {op: "C", name: "到工商行政管理机构进行合同公证", is_answer: 1, sureid: true},
+        {op: "D", name: "预收佣金", is_answer: 1}
+   ]
+   console.log(isEquar(arrone, arrone))
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function getIntersect(){
+        var arr = new Array();
+        var obj = new Object();
+        var arguLen = arguments.length;
+        for(var i = 0; i<arguLen;i++){
+            if(arguments[i].constructor !== Array){
+                throw TypeError("请都传入数组类型");
+            }
+            for(var j = 0,length = arguments[i].length;j<length;j++){
+                var item = arguments[i][j];
+                if(!obj[item]){
+                    obj[item] = 1;
+                }else{
+                    obj[item]++;
+                    if(obj[item]===arguLen){
+                        arr.push(item);
+                    }
+                }
+            }
+        }
+        return arr;
+    }
+    // var arr3 = arr2.filter(function(v){
+    //     return arr1.indexOf(v)!==-1 // 利用filter方法来遍历是否有相同的元素
+    // })
+    const arr1 = [1, 2, 3, 4]
+    const arr2 = [2, 3, 6, 7]
+    console.log(getIntersect(arr1, arr2))
+  </script>
+</body>
+</html>

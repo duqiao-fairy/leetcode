@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function differenceBy(array) {
+        if (!array || !Array.isArray(array) || array.length <= 0) {
+            return [];
+        }
+        var except = arguments[1];
+        if (!except  || !Array.isArray(except) || except.length <= 0) {
+            return array.concat();
+        }
+        var func = arguments[2];
+        if (!func) {
+            func = x => x;
+        } else if (typeof func === 'string') {
+            var key = func;
+            func = data => data[key];
+        }
+        var exc = except.map(function (value) {
+            return func(value);
+        });
+        return array.filter(function (value) {
+            return exc.indexOf(func(value)) < 0;
+        });
+
+    }
+  </script>
+</body>
+</html>
